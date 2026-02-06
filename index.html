@@ -1,22 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fun Hub: Lotto & Games</title>
+    <title>펀 허브: 로또 & 게임</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <nav>
-        <div class="nav-logo">Fun Hub</div>
+        <div class="nav-logo">펀 허브</div>
         <div class="nav-links">
-            <button class="nav-btn active" data-target="lotto">Lotto</button>
-            <button class="nav-btn" data-target="game">Mini Game</button>
-            <button id="theme-toggle" class="nav-btn" aria-label="Toggle Dark Mode">🌙</button>
+            <button class="nav-btn active" data-target="lotto">로또</button>
+            <button class="nav-btn" data-target="game">미니 게임</button>
+            <button id="theme-toggle" class="nav-btn" aria-label="다크 모드 토글">🌙</button>
             <div id="auth-section" class="auth-buttons">
                 <!-- Injected via JS -->
-                <button onclick="showModal('login-modal')">Login</button>
-                <button class="primary" onclick="showModal('signup-modal')">Sign Up</button>
+                <button onclick="showModal('login-modal')">로그인</button>
+                <button class="primary" onclick="showModal('signup-modal')">회원가입</button>
             </div>
         </div>
     </nav>
@@ -25,7 +25,7 @@
         <div class="container">
             <!-- Lotto Section -->
             <div id="lotto" class="content-section active">
-                <h1>Lotto Number Generator</h1>
+                <h1>로또 번호 생성기</h1>
                 <div class="lotto-numbers">
                     <div class="number">?</div>
                     <div class="number">?</div>
@@ -34,24 +34,24 @@
                     <div class="number">?</div>
                     <div class="number">?</div>
                 </div>
-                <button id="generate-btn" class="action-btn">Generate Numbers</button>
+                <button id="generate-btn" class="action-btn">번호 생성</button>
             </div>
 
             <!-- Mini Game Section -->
             <div id="game" class="content-section">
-                <h1>Rock Paper Scissors</h1>
+                <h1>가위바위보</h1>
                 <div class="score-board">
-                    <span>You: <span id="player-score">0</span></span>
-                    <span>Cpu: <span id="cpu-score">0</span></span>
+                    <span>나: <span id="player-score">0</span></span>
+                    <span>컴퓨터: <span id="cpu-score">0</span></span>
                 </div>
                 <div class="game-area">
-                    <div class="game-result" id="game-result">Choose your weapon!</div>
+                    <div class="game-result" id="game-result">무기를 선택하세요!</div>
                     <div class="rps-choices">
                         <button class="rps-btn" data-choice="rock">✊</button>
                         <button class="rps-btn" data-choice="paper">✋</button>
                         <button class="rps-btn" data-choice="scissors">✌️</button>
                     </div>
-                    <button id="reset-game-btn" class="action-btn" style="background-color: #666; font-size: 14px; padding: 10px 20px;">Reset Score</button>
+                    <button id="reset-game-btn" class="action-btn" style="background-color: #666; font-size: 14px; padding: 10px 20px;">점수 초기화</button>
                 </div>
             </div>
         </div>
@@ -61,17 +61,17 @@
     <div id="login-modal" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('login-modal')">&times;</span>
-            <h2>Login</h2>
+            <h2>로그인</h2>
             <form id="login-form">
                 <div class="form-group">
-                    <label for="login-username">Username</label>
+                    <label for="login-username">사용자 이름</label>
                     <input type="text" id="login-username" required>
                 </div>
                 <div class="form-group">
-                    <label for="login-password">Password</label>
+                    <label for="login-password">비밀번호</label>
                     <input type="password" id="login-password" required>
                 </div>
-                <button type="submit" class="action-btn" style="width: 100%">Login</button>
+                <button type="submit" class="action-btn" style="width: 100%">로그인</button>
             </form>
         </div>
     </div>
@@ -80,17 +80,17 @@
     <div id="signup-modal" class="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('signup-modal')">&times;</span>
-            <h2>Sign Up</h2>
+            <h2>회원가입</h2>
             <form id="signup-form">
                 <div class="form-group">
-                    <label for="signup-username">Username</label>
+                    <label for="signup-username">사용자 이름</label>
                     <input type="text" id="signup-username" required>
                 </div>
                 <div class="form-group">
-                    <label for="signup-password">Password</label>
+                    <label for="signup-password">비밀번호</label>
                     <input type="password" id="signup-password" required>
                 </div>
-                <button type="submit" class="action-btn" style="width: 100%">Sign Up</button>
+                <button type="submit" class="action-btn" style="width: 100%">회원가입</button>
             </form>
         </div>
     </div>

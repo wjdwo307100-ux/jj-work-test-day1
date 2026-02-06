@@ -102,13 +102,13 @@ function initGame() {
             
             let message = '';
             if (winner === 'draw') {
-                message = `Draw! Both chose ${emoji(playerChoice)}.`;
+                message = `무승부! 둘 다 ${emoji(playerChoice)}을(를) 선택했습니다.`;
             } else if (winner === 'player') {
                 playerScore++;
-                message = `You Win! ${emoji(playerChoice)} beats ${emoji(cpuChoice)}.`;
+                message = `승리! ${emoji(playerChoice)}이(가) ${emoji(cpuChoice)}을(를) 이겼습니다.`;
             } else {
                 cpuScore++;
-                message = `You Lose! ${emoji(cpuChoice)} beats ${emoji(playerChoice)}.`;
+                message = `패배! ${emoji(cpuChoice)}이(가) ${emoji(playerChoice)}에게 졌습니다.`;
             }
 
             resultDisplay.textContent = message;
@@ -122,7 +122,7 @@ function initGame() {
         cpuScore = 0;
         playerScoreSpan.textContent = '0';
         cpuScoreSpan.textContent = '0';
-        resultDisplay.textContent = 'Choose your weapon!';
+        resultDisplay.textContent = '무기를 선택하세요!';
     });
 }
 
@@ -154,7 +154,7 @@ function initAuth() {
         localStorage.setItem('currentUser', username);
         closeModal('login-modal');
         checkLoginStatus();
-        alert(`Welcome back, ${username}!`);
+        alert(`환영합니다, ${username}님!`);
     });
 
     signupForm.addEventListener('submit', (e) => {
@@ -164,7 +164,7 @@ function initAuth() {
         localStorage.setItem('currentUser', username);
         closeModal('signup-modal');
         checkLoginStatus();
-        alert(`Account created! Welcome, ${username}!`);
+        alert(`계정이 생성되었습니다! 환영합니다, ${username}님!`);
     });
 }
 
@@ -174,13 +174,13 @@ function checkLoginStatus() {
 
     if (user) {
         authSection.innerHTML = `
-            <span>Hi, <b>${user}</b></span>
-            <button onclick="logout()">Logout</button>
+            <span>안녕하세요, <b>${user}</b></span>
+            <button onclick="logout()">로그아웃</button>
         `;
     } else {
         authSection.innerHTML = `
-            <button onclick="showModal('login-modal')">Login</button>
-            <button class="primary" onclick="showModal('signup-modal')">Sign Up</button>
+            <button onclick="showModal('login-modal')">로그인</button>
+            <button class="primary" onclick="showModal('signup-modal')">회원가입</button>
         `;
     }
 }
