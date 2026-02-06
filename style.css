@@ -266,3 +266,63 @@ h1 {
     border: 1px solid #ccc;
     border-radius: 4px;
 }
+
+/* Button Group */
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Character Styles */
+.character {
+    position: fixed;
+    bottom: -150px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 150px;
+    transition: bottom 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 500;
+    pointer-events: none;
+    display: block !important; /* Override hidden if set via class but we want transition */
+    opacity: 0; /* Hidden by default via opacity */
+}
+
+.character.show {
+    opacity: 1;
+    bottom: 20%;
+    animation: shake 0.5s ease-in-out infinite;
+}
+
+.character.tear-action {
+    animation: swipe 0.2s forwards;
+}
+
+@keyframes shake {
+    0% { transform: translateX(-50%) rotate(0deg); }
+    25% { transform: translateX(-50%) rotate(-5deg); }
+    75% { transform: translateX(-50%) rotate(5deg); }
+    100% { transform: translateX(-50%) rotate(0deg); }
+}
+
+@keyframes swipe {
+    0% { transform: translateX(-50%) scale(1); }
+    50% { transform: translateX(-50%) scale(1.2) rotate(-10deg); }
+    100% { transform: translateX(-50%) scale(1); }
+}
+
+/* Tearing Animation for Lotto Numbers */
+.lotto-numbers.destroyed {
+    animation: rip 0.8s forwards;
+}
+
+@keyframes rip {
+    0% { transform: scale(1); opacity: 1; }
+    20% { transform: scale(1.1) rotate(5deg); }
+    40% { transform: scale(1.1) rotate(-5deg); }
+    100% { transform: translateY(200px) rotate(20deg); opacity: 0; }
+}
+
+.character.hidden {
+    display: none !important;
+}

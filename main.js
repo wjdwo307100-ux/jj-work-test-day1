@@ -27,6 +27,47 @@ function initLotto() {
             numDiv.style.color = 'white';
         });
     });
+
+    // Tear/Destroy Logic
+    const tearBtn = document.getElementById('tear-btn');
+    if (tearBtn) {
+        tearBtn.addEventListener('click', () => {
+            const char = document.getElementById('character');
+            const container = document.querySelector('.lotto-numbers');
+
+            // Character enters
+            char.classList.remove('hidden');
+            // Force reflow
+            void char.offsetWidth;
+            char.classList.add('show');
+
+            setTimeout(() => {
+                // Tearing effect
+                char.classList.add('tear-action');
+                container.classList.add('destroyed');
+            }, 600);
+
+            setTimeout(() => {
+                // Reset
+                char.classList.remove('show');
+                char.classList.remove('tear-action');
+                
+                // Hide character after transition
+                setTimeout(() => {
+                    char.classList.add('hidden');
+                }, 500);
+
+                container.classList.remove('destroyed');
+                
+                // Reset numbers
+                document.querySelectorAll('.number').forEach(n => {
+                    n.textContent = '?';
+                    n.style.backgroundColor = 'var(--number-bg)';
+                    n.style.color = 'var(--number-text)';
+                });
+            }, 2500);
+        });
+    }
 }
 
 function getLottoColor(number) {
