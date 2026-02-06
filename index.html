@@ -1,24 +1,100 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lotto Number Generator</title>
+    <title>Fun Hub: Lotto & Games</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Lotto Number Generator</h1>
-        <div class="lotto-numbers">
-            <div class="number">?</div>
-            <div class="number">?</div>
-            <div class="number">?</div>
-            <div class="number">?</div>
-            <div class="number">?</div>
-            <div class="number">?</div>
+    <nav>
+        <div class="nav-logo">Fun Hub</div>
+        <div class="nav-links">
+            <button class="nav-btn active" data-target="lotto">Lotto</button>
+            <button class="nav-btn" data-target="game">Mini Game</button>
+            <button id="theme-toggle" class="nav-btn" aria-label="Toggle Dark Mode">🌙</button>
+            <div id="auth-section" class="auth-buttons">
+                <!-- Injected via JS -->
+                <button onclick="showModal('login-modal')">Login</button>
+                <button class="primary" onclick="showModal('signup-modal')">Sign Up</button>
+            </div>
         </div>
-        <button id="generate-btn">Generate Numbers</button>
+    </nav>
+
+    <main>
+        <div class="container">
+            <!-- Lotto Section -->
+            <div id="lotto" class="content-section active">
+                <h1>Lotto Number Generator</h1>
+                <div class="lotto-numbers">
+                    <div class="number">?</div>
+                    <div class="number">?</div>
+                    <div class="number">?</div>
+                    <div class="number">?</div>
+                    <div class="number">?</div>
+                    <div class="number">?</div>
+                </div>
+                <button id="generate-btn" class="action-btn">Generate Numbers</button>
+            </div>
+
+            <!-- Mini Game Section -->
+            <div id="game" class="content-section">
+                <h1>Rock Paper Scissors</h1>
+                <div class="score-board">
+                    <span>You: <span id="player-score">0</span></span>
+                    <span>Cpu: <span id="cpu-score">0</span></span>
+                </div>
+                <div class="game-area">
+                    <div class="game-result" id="game-result">Choose your weapon!</div>
+                    <div class="rps-choices">
+                        <button class="rps-btn" data-choice="rock">✊</button>
+                        <button class="rps-btn" data-choice="paper">✋</button>
+                        <button class="rps-btn" data-choice="scissors">✌️</button>
+                    </div>
+                    <button id="reset-game-btn" class="action-btn" style="background-color: #666; font-size: 14px; padding: 10px 20px;">Reset Score</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Login Modal -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('login-modal')">&times;</span>
+            <h2>Login</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="login-username">Username</label>
+                    <input type="text" id="login-username" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" required>
+                </div>
+                <button type="submit" class="action-btn" style="width: 100%">Login</button>
+            </form>
+        </div>
     </div>
+
+    <!-- Signup Modal -->
+    <div id="signup-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('signup-modal')">&times;</span>
+            <h2>Sign Up</h2>
+            <form id="signup-form">
+                <div class="form-group">
+                    <label for="signup-username">Username</label>
+                    <input type="text" id="signup-username" required>
+                </div>
+                <div class="form-group">
+                    <label for="signup-password">Password</label>
+                    <input type="password" id="signup-password" required>
+                </div>
+                <button type="submit" class="action-btn" style="width: 100%">Sign Up</button>
+            </form>
+        </div>
+    </div>
+
     <script src="main.js"></script>
 </body>
 </html>
